@@ -6,12 +6,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
-#import redditScrapper as red
 import databaseHelper as db
 import datetime as dt
 import traceback
 
-target = '"HCI Project Testing"'  # Group/person's name
+target = '"Testing Group"'  # Group/person's name
 x_arg = '//span[contains(@title,' + target + ')]'
 std_pat = re.compile("![A-Za-z]+.*$")  # For finding out if message is a command
 command_pat = re.compile("![A-Za-z]+")  # For isolating the command
@@ -76,7 +75,7 @@ def sendPhoto(file_name):
     sendButton.click()
 
 source_dir = os.path.dirname(os.path.realpath(__file__))
-driver = webdriver.Chrome(os.path.join(source_dir, "chromedriver.exe"))
+driver = webdriver.Chrome(os.path.join(source_dir, "chromedriver.exe")) #Path for chromedriver
 
 driver.get("https://web.whatsapp.com/")
 wait = WebDriverWait(driver, 600)
